@@ -1,0 +1,29 @@
+/* This is a comment */
+
+/* This is called an @rule, specificially
+    a @media rule*/
+@media (min-width: 30em) {
+
+/* The .special class has precedence over the general p 
+selector because it is more specific.*/
+.special{
+    color: blue;
+    background-color: burlywood;
+    background: red url(bg-graphic.png) 10px 10px repeat-x fixed;
+}
+
+p {
+    color: red;
+    font-size: 40px;
+}
+
+/*.box uses the rotate() function*/
+.box {
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+    transform: rotate(0.8turn)
+  }
+
+}
