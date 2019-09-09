@@ -26,4 +26,12 @@ p {
     transform: rotate(0.8turn)
   }
 
+  
+  ol.special {
+    list-style-type: none;
+  }
+
+  li em{
+      color:gold;
+  }
 }
