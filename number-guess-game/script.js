@@ -16,22 +16,30 @@ let guessCount = 1;
 //create reference to the resetButton in HTML
 let resetButton;
 
+//this checkGuess function is considered an "event handler", it is a block of code that runs in response to an event
 function checkGuess() {
+  //create userGuess variable and store the input element with the id "guessField"'s value into it
   let userGuess = Number(guessField.value);
+
   if (guessCount === 1) {
     guesses.textContent = 'Previous guesses: ';
   }
+
+  //append the userGuess and a space to the <p> element with the "gueses" class
   guesses.textContent += userGuess + ' ';
 
   if (userGuess === randomNumber) {
     lastResult.textContent = 'Congratulations! You got it right!';
+    //lastResult is a <p> element
     lastResult.style.backgroundColor = 'green';
+    //show nothing for this <p> in this case
     lowOrHi.textContent = '';
     setGameOver();
   } else if (guessCount === 10) {
     lastResult.textContent = '!!!GAME OVER!!!';
     setGameOver();
   } else {
+    //these are all <p> elements within a <div class="resultParas"> element
     lastResult.textContent = 'Wrong!';
     lastResult.style.backgroundColor = 'red';
     if(userGuess < randomNumber) {
@@ -42,12 +50,16 @@ function checkGuess() {
   }           
 
   guessCount++;
+  //empty out the value in the field
   guessField.value = '';
+  //automatically put blinking cursor in box
   guessField.focus();
 
 }
 
+//an event listener is a construct that listens for an event
 guessSubmit.addEventListener('click', checkGuess);
+
 
 function setGameOver() {
   guessField.disabled = true;
