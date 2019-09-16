@@ -15,6 +15,7 @@ let guessCount = 1;
 
 //create reference to the resetButton in HTML
 let resetButton;
+guessField.focus();
 
 //this checkGuess function is considered an "event handler", it is a block of code that runs in response to an event
 function checkGuess() {
@@ -60,19 +61,23 @@ function checkGuess() {
 //an event listener is a construct that listens for an event
 guessSubmit.addEventListener('click', checkGuess);
 
-
+//this function disables the form fields, creates a button, and then adds an event listener to that button to call another event handler
 function setGameOver() {
   guessField.disabled = true;
   guessSubmit.disabled = true;
+
   resetButton = document.createElement('button');
   resetButton.textContent = 'Start new game';
   document.body.appendChild(resetButton);
+
+  //event listener
   resetButton.addEventListener('click', resetGame);
 }
 
 function resetGame() {
   guessCount = 1;
 
+  //reset all fields
   const resetParas = document.querySelectorAll('.resultParas p');
   for (let i = 0 ; i < resetParas.length ; i++) {
     resetParas[i].textContent = '';
