@@ -21,9 +21,12 @@ randomize.addEventListener('click', result);
 function result() {
 
     let newStory = storyText;
-    let xItem = insertX[randomValueFromArray(insertX)];
-    let yItem = insertY[randomValueFromArray(insertY)];
-    let zItem = insertZ[randomValueFromArray(insertZ)];
+    let xItem = randomValueFromArray(insertX);
+    let yItem = randomValueFromArray(insertY);
+    let zItem = randomValueFromArray(insertZ);
+
+    //console.log(randomValueFromArray(insertX));
+  
 
     newStory = newStory.replace(/:insertx:/g, xItem);
     newStory = newStory.replace(/:inserty:/g, yItem);
@@ -35,8 +38,8 @@ function result() {
   }
 
   if(document.getElementById("uk").checked) {
-    var weight = num.toString(Math.round(300/14)) + ' stone';
-    var temperature =  num.toString(Math.round((94 - 32) * (5/9))) + ' centigrade';
+    var weight = '21.4 stone';
+    var temperature =  '34 centigrade';
     newStory = newStory.replace('94 fahrenheit', temperature);
     newStory = newStory.replace('300 pounds', weight);
   }
